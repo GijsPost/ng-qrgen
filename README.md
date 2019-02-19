@@ -5,7 +5,10 @@ Fast and easy QR code generator.
 An Angular (2+) Component wrapper for: https://www.npmjs.com/package/qrcode
 
 ## Installation
-`npm i ng-qrgen`
+
+
+`npm i ng-qrgen`  
+
 Add NgQrgenModule to your angular module.
 
 ## Usage
