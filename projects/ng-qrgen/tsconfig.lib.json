@@ -17,6 +17,9 @@
       "es2015"
     ]
   },
+  "include": [
+    "./**/*.ts"
+  ],
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,
     "skipTemplateCodegen": true,
