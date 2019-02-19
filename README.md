@@ -15,7 +15,8 @@ Add NgQrgenModule to your angular module.
 The options interface can be found at
 `import { QrGenOptions } from 'ng-qrgen';`
 Which looks like:
-```{
+```
+{
     value: string;
     version: number;
     type: GenerationType;
@@ -29,7 +30,8 @@ Which looks like:
         dark: string,
         light: string,
     };
-}```
+}
+```
 
 * `value`: The value to be parsed as a QR code. Can be an url or any string.  
 * `version`: The QR code version (1-40), higher means more black squares.  
