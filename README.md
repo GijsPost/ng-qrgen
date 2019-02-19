@@ -1,27 +1,43 @@
-# QRCodeTest
+![Image](assets/demoImage.png "icon")
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.5.
+# NgQrGen
+Fast and easy QR code generator.
+An Angular (2+) Component wrapper for: https://www.npmjs.com/package/qrcode
 
-## Development server
+## Installation
+`npm i ng-qrgen`
+Add NgQrgenModule to your angular module.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Usage
+`<ng-qrgen [options]="options"></ng-qrgen>`
 
-## Code scaffolding
+## Options
+The options interface can be found at
+`import { QrGenOptions } from 'ng-qrgen';`
+Which looks like:
+`{
+    value: string;
+    version: number;
+    type: GenerationType;
+    imageType?: ImageType;
+    errorCorrectionLevel?: ErrorCorrectionlevel;
+    margin?: number;
+    scale?: number;
+    width: number;
+    maskPattern?: number;
+    color?: {
+        dark: string,
+        light: string,
+    };
+}`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+`value`: The value to be parsed as a QR code. Can be an url or any string.
+`version`: The QR code version (1-40), higher means more black squares.
+`type`: Image, Canvas, or Svg.
+`imageType`: If you chose Image at `type`, determine which image type to use: Png, Jpeg, or Webp.
+`errorCorrectionLevel`: The level of error correction: Low, Medium, Quartive, High. (See: https://www.npmjs.com/package/qrcode#error-correction-level).
+`margin`: White space around the edges.
+`scale`: Scale factor. A value of 1 means 1px per modules (black dots).
+`width`: Size of the QR code.
+`maskPattern`: Mask pattern used to mask the symbol.
+`color`: The dark and light colors. Use Hex-codes.

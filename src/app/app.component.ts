@@ -8,8 +8,8 @@ import { QrGenOptions, GenerationType, ErrorCorrectionlevel, ImageType } from 'p
 })
 export class AppComponent {
   public options: QrGenOptions = {
-    value: 'Gijs',
-    version: 7,
+    value: 'ng-qrgen',
+    version: 1,
     margin: 0,
     width: 500,
     type: GenerationType.Image,
