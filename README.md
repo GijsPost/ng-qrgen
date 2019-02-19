@@ -1,4 +1,4 @@
-![Image](assets/demoImage.png "icon")
+![Image](src/assets/demoImage.png "icon")
 
 # NgQrGen
 Fast and easy QR code generator.
