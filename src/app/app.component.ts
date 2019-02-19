@@ -11,7 +11,7 @@ export class AppComponent {
     value: 'ng-qrgen',
     version: 1,
     margin: 0,
-    width: 500,
+    width: 100,
     type: GenerationType.Image,
     imageType: ImageType.Png,
   };
