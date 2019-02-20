@@ -1,11 +1,11 @@
-![Image](src/assets/demoImage.png "icon")
+Fast and easy QR code generator.
 
 # NgQrGen
-Fast and easy QR code generator.
 An Angular (2+) Component wrapper for: https://www.npmjs.com/package/qrcode
 
-## Installation
+![Image](src/assets/demoImage.png "icon")
 
+## Installation
 
 `npm i ng-qrgen`  
 
@@ -15,9 +15,9 @@ Add NgQrgenModule to your angular module.
 `<ng-qrgen [options]="options"></ng-qrgen>`
 
 ## Options
-The options interface can be found at
-`import { QrGenOptions } from 'ng-qrgen';`
-Which looks like:
+The options interface can be found at  
+`import { QrGenOptions } from 'ng-qrgen';`  
+Which looks like:  
 ```
 {
     value: string;

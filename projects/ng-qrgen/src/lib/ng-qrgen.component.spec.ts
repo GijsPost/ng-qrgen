@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NgQrgenComponent } from './ng-qrgen.component';
+import { NgQrGenComponent } from './ng-qrgen.component';
 
 describe('NgQrgenComponent', () => {
-  let component: NgQrgenComponent;
-  let fixture: ComponentFixture<NgQrgenComponent>;
+  let component: NgQrGenComponent;
+  let fixture: ComponentFixture<NgQrGenComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NgQrgenComponent ]
+      declarations: [ NgQrGenComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NgQrgenComponent);
+    fixture = TestBed.createComponent(NgQrGenComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

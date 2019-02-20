@@ -17,7 +17,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
  * can be implemented like so:
  * <ng-qrgen [options]="options"></ng-qrgen>
  */
-export class NgQrgenComponent implements OnChanges {
+export class NgQrGenComponent implements OnChanges {
 
   @Input('options') options: QrGenOptions;
 

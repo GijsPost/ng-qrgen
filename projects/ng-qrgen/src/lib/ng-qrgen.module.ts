@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { NgQrgenComponent } from './ng-qrgen.component';
+import { NgQrGenComponent } from './ng-qrgen.component';
 
 @NgModule({
   imports: [
   ],
-  declarations: [NgQrgenComponent],
-  exports: [NgQrgenComponent]
+  declarations: [NgQrGenComponent],
+  exports: [NgQrGenComponent]
 })
-export class NgQrgenModule { }
+export class NgQrGenModule { }

@@ -3,5 +3,8 @@
   "dest": "../../dist/ng-qrgen",
   "lib": {
     "entryFile": "src/public_api.ts"
-  }
+  },
+  "whitelistedNonPeerDependencies": [
+    "qrcode"
+  ]
 }

@@ -4,13 +4,13 @@ import * as QRCode from 'qrcode';
 export class QrCodeGen {
     static generateEncodedDataUrl(options: QrGenOptions): Promise<string> {
         if (!options) {
-            throw new Error('Options were not set.');
+            throw new Error('[NgQrGen] options were not set.');
         }
         if (options.type !== GenerationType.Image) {
-            throw new Error('options.type should be of value GenerationType.Image when generating an Encoded Data Url.');
+            throw new Error('[NgQrGen] options.type should be of value GenerationType.Image when generating an Encoded Data Url.');
         }
         if (!options.imageType) {
-            throw new Error('options.imageType should be set, when generating an Encoded Data Url.');
+            throw new Error('[NgQrGen] options.imageType should be set, when generating an Encoded Data Url.');
         }
 
         return new Promise<string>((resolve, reject) => {
@@ -30,7 +30,7 @@ export class QrCodeGen {
 
     static generateString(options: QrGenOptions): Promise<string> {
         if (!options) {
-            throw new Error('Options were not set.');
+            throw new Error('[NgQrGen] options were not set.');
         }
 
         return new Promise<string>((resolve, reject) => {
