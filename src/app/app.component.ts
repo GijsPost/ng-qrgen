@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { QrGenOptions, GenerationType, ErrorCorrectionlevel, ImageType } from 'projects/ng-qrgen/src/public_api';
+import { QrGenOptions, GenerationType, ImageType } from 'projects/ng-qrgen/src/public_api';
 
 @Component({
   selector: 'app-root',
@@ -7,12 +7,21 @@ import { QrGenOptions, GenerationType, ErrorCorrectionlevel, ImageType } from 'p
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public options: QrGenOptions = {
-    value: 'ng-qrgen',
-    version: 1,
+  public stringValue = 'Test';
+  public readonly options: QrGenOptions = {
+    version: 5,
     margin: 0,
-    width: 100,
-    type: GenerationType.Image,
+    width: 150,
+    type: GenerationType.Canvas,
     imageType: ImageType.Png,
+    color: {
+      light: '#00FFFFFF',
+    }
   };
+
+  constructor() {
+    setInterval(_ => {
+      this.stringValue = Math.random().toString();
+    }, 1000);
+  }
 }

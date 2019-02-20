@@ -1,5 +1,4 @@
 export interface QrGenOptions {
-    value: string;
     version: number;
     type: GenerationType;
     imageType?: ImageType;
@@ -9,8 +8,8 @@ export interface QrGenOptions {
     width: number;
     maskPattern?: number;
     color?: {
-        dark: string,
-        light: string,
+        dark?: string,
+        light?: string,
     };
 }
 

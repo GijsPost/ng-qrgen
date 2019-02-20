@@ -2,7 +2,7 @@ import { QrGenOptions, GenerationType } from './ng-qrgen-generation-options.inte
 import * as QRCode from 'qrcode';
 
 export class QrCodeGen {
-    static generateEncodedDataUrl(options: QrGenOptions): Promise<string> {
+    static generateEncodedDataUrl(value: string, options: QrGenOptions): Promise<string> {
         if (!options) {
             throw new Error('[NgQrGen] options were not set.');
         }
@@ -14,10 +14,11 @@ export class QrCodeGen {
         }
 
         return new Promise<string>((resolve, reject) => {
-            const formlessOptions = <any>options;
+            // Object must be hard-copied, due to type property override
+            const formlessOptions = <any>{ ...options};
             formlessOptions.type = options.imageType;
             delete formlessOptions.imageType;
-            QRCode.toDataURL(formlessOptions.value, formlessOptions, function (err: Error, url: string) {
+            QRCode.toDataURL(value, formlessOptions, function (err: Error, url: string) {
                 if (err) {
                     console.error(err);
                     reject(err);
@@ -28,15 +29,16 @@ export class QrCodeGen {
         });
     }
 
-    static generateString(options: QrGenOptions): Promise<string> {
+    static generateString(value: string, options: QrGenOptions): Promise<string> {
         if (!options) {
             throw new Error('[NgQrGen] options were not set.');
         }
 
         return new Promise<string>((resolve, reject) => {
-            const formlessOptions = <any>options;
+            // Object must be hard-copied, due to type property override
+            const formlessOptions = <any>{ ...options};
             formlessOptions.type = 'svg';
-            QRCode.toString(formlessOptions.value, formlessOptions, function (err: Error, url: string) {
+            QRCode.toString(value, formlessOptions, function (err: Error, url: string) {
                 if (err) {
                     console.error(err);
                     reject(err);

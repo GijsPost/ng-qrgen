@@ -19,6 +19,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
  */
 export class NgQrGenComponent implements OnChanges {
 
+  @Input('value') value: string;
   @Input('options') options: QrGenOptions;
 
   @ViewChild('qrcElement') qrElement: ElementRef;
@@ -28,9 +29,13 @@ export class NgQrGenComponent implements OnChanges {
   constructor(private renderer: Renderer2, private sanitizer: DomSanitizer) { }
 
   ngOnChanges() {
+    if (!this.value) {
+      throw new Error('[NgQrGen] value is null, implement: value="string value"');
+    }
     if (!this.options) {
       throw new Error('[NgQrGen] options were null, implement: [options]="options" where options: QrGenOptions ');
     }
+
     this.generateQR(this.options);
   }
 
@@ -49,9 +54,10 @@ export class NgQrGenComponent implements OnChanges {
   private renderCanvas(options: QrGenOptions): void {
     const element: Element = this.renderer.createElement('canvas');
     new Promise((resolve, reject) => {
-      QRCode.toCanvas(element, options.value, options, function (error: Error) {
+      QRCode.toCanvas(element, this.value, options, function (error: Error) {
         if (error) {
           reject(error);
+          throw error;
         } else {
           resolve('success');
         }
@@ -62,7 +68,7 @@ export class NgQrGenComponent implements OnChanges {
   }
 
   private renderImage(options: QrGenOptions): void {
-    QrCodeGen.generateEncodedDataUrl(options).then((url: string) => {
+    QrCodeGen.generateEncodedDataUrl(this.value, options).then((url: string) => {
       const element: Element = this.renderer.createElement('img');
       element.setAttribute('src', url);
       this.renderElement(element);
@@ -70,7 +76,7 @@ export class NgQrGenComponent implements OnChanges {
   }
 
   private renderSvg(options: QrGenOptions): void {
-    QrCodeGen.generateString(options).then((generatedString: string) => {
+    QrCodeGen.generateString(this.value, options).then((generatedString: string) => {
       this.innerHtml = this.sanitizer.bypassSecurityTrustHtml(generatedString);
     });
   }

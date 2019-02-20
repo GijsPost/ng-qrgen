@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { NgQrgenModule } from '../../dist/ng-qrgen';
+import { NgQrGenModule } from '../../projects/ng-qrgen/src/public_api';
 
 @NgModule({
   declarations: [
@@ -10,7 +10,7 @@ import { NgQrgenModule } from '../../dist/ng-qrgen';
   ],
   imports: [
     BrowserModule,
-    NgQrgenModule,
+    NgQrGenModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
