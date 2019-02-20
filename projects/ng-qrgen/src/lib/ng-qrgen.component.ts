@@ -1,7 +1,7 @@
 import { Component, OnChanges, Input, Renderer2, ViewChild, ElementRef } from '@angular/core';
 import * as QRCode from 'qrcode';
 import { QrGenOptions, GenerationType } from './ng-qrgen-generation-options.interface';
-import { QrCodeGen } from './ng-qrgen-staticfunctions';
+import { NgQrGen } from './ng-qrgen-staticfunctions';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
@@ -68,7 +68,7 @@ export class NgQrGenComponent implements OnChanges {
   }
 
   private renderImage(options: QrGenOptions): void {
-    QrCodeGen.generateEncodedDataUrl(this.value, options).then((url: string) => {
+    NgQrGen.generateEncodedDataUrl(this.value, options).then((url: string) => {
       const element: Element = this.renderer.createElement('img');
       element.setAttribute('src', url);
       this.renderElement(element);
@@ -76,7 +76,7 @@ export class NgQrGenComponent implements OnChanges {
   }
 
   private renderSvg(options: QrGenOptions): void {
-    QrCodeGen.generateString(this.value, options).then((generatedString: string) => {
+    NgQrGen.generateString(this.value, options).then((generatedString: string) => {
       this.innerHtml = this.sanitizer.bypassSecurityTrustHtml(generatedString);
     });
   }

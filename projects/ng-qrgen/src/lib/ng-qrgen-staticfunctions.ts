@@ -1,8 +1,11 @@
 import { QrGenOptions, GenerationType } from './ng-qrgen-generation-options.interface';
 import * as QRCode from 'qrcode';
 
-export class QrCodeGen {
+export class NgQrGen {
     static generateEncodedDataUrl(value: string, options: QrGenOptions): Promise<string> {
+        if (!value) {
+            throw new Error('[NgQrGen] value was null');
+        }
         if (!options) {
             throw new Error('[NgQrGen] options were not set.');
         }
@@ -30,8 +33,11 @@ export class QrCodeGen {
     }
 
     static generateString(value: string, options: QrGenOptions): Promise<string> {
+        if (!value) {
+            throw new Error('[NgQrGen] value was null');
+        }
         if (!options) {
-            throw new Error('[NgQrGen] options were not set.');
+            throw new Error('[NgQrGen] options were null');
         }
 
         return new Promise<string>((resolve, reject) => {

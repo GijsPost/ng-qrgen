@@ -44,3 +44,9 @@ Which looks like:
 * `width`: Size of the QR code.  
 * `maskPattern`: Mask pattern used to mask the symbol.  
 * `color`: The dark and light colors. Use Hex-codes.  
+
+## Static Methods  
+`import { NgQrGen } from 'ngqrgen';`  
+Usage:  
+* `NgQrGen.generateEncodedDataUrl(value: string, options: QrGenOptions)`: Generates an base-64 encoded data url string as QR code source. Can be used in the `src` property of an image.  
+* `NgQrGen.generateString(value: string, options: QrGenOptions)`: Generates an svg element as string.  
